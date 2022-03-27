@@ -1,56 +1,73 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import Input from "./components/Input";
+import TodoItem from "./components/TodoItem";
+import { useSelector } from "react-redux";
+import { selectTodoList } from "./features/todoSlice";
+import { ToastContainer } from "react-toastify";
+import "./index.css";
 
 function App() {
+  const todoList = useSelector(selectTodoList);
+
+  const getCurrentDate = new Date().toDateString();
+
+  const getHours = new Date().getHours();
+
+  function displayMe() {
+    if (getHours < 12) {
+      return (
+        <>
+          <h1>Good Morning 🌅</h1>
+        </>
+      );
+    } else if (getHours < 16) {
+      return (
+        <>
+          <h1>Good Afternoon,🌞</h1>
+        </>
+      );
+    } else if (getHours < 19) {
+      return (
+        <>
+          <h1>Good Evening,🌇</h1>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <p>Good Night 🌛</p>
+        </>
+      );
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="app">
+      <ToastContainer />
+      <div className="app__container">
+        <div className="welcome__greeting">
+          <h1>{displayMe()}</h1>
+          <h1>{getCurrentDate}</h1>
+        </div>
+        <div className="app__info">
+          <h2>
+            Welcome user, you currently have {todoList.length} activities on
+            your list
+          </h2>
+        </div>
+        <div className="app__todo--container">
+          {todoList.map((item) => (
+            <TodoItem
+              name={item.activity}
+              done={item.done}
+              id={item.id}
+              date={item.date}
+              time={item.time}
+            />
+          ))}
+        </div>
+        <Input />
+      </div>
     </div>
   );
 }

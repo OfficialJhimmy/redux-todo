@@ -1,0 +1,71 @@
+.todoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  margin: 20px 4px;
+  padding: 10px 17px;
+  border-radius: 7px;
+}
+
+.todoItem h3 {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.todoItem p {
+  font-size: 13px;
+}
+
+.todoItem > p {
+  flex: 1;
+}
+
+.todoitem__btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.delete__icon {
+  width: 20px;
+  height: 20px;
+  color: gray;
+}
+
+@media screen and (max-width: 680px) {
+  .todoItem {
+    flex-direction: column;
+    width: 100%;
+    margin: 15px 0px;
+    padding: 10px 17px;
+    align-items: flex-start;
+  }
+
+  .todoItem div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .todoItem > p {
+    flex: 1;
+  }
+
+  .todoItem p {
+    font-size: 13px;
+    margin-top: -8px;
+    margin-left: 20px;
+  }
+
+  .delete__icon {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+}

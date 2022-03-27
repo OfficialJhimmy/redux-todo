@@ -1,0 +1,54 @@
+.input__container {
+  height: 50px;
+  width: 100%;
+  border-radius: 7px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input__text {
+  background: none;
+  border: none;
+  margin-left: 12px;
+  flex: 1;
+  font-family: var(--font-family-paragraph);
+}
+
+.input__text:focus {
+  outline: none;
+}
+
+.input__btn {
+  margin-right: 8px;
+  background-color: rgb(214, 213, 213);
+  border: none;
+  border-radius: 7px;
+  height: 30px;
+  width: 60px;
+  cursor: pointer;
+  outline: none;
+  transition: ease-in-out 1s;
+}
+
+.input__btn:hover {
+  background-color: #eee;
+}
+
+.MuiFormControl-marginNormal {
+  font-family: var(--font-family-paragraph) !important;
+  width: 150px;
+  font-size: 10px !important;
+  margin-right: 10px !important;
+}
+
+label + .MuiInput-formControl {
+  font-size: 12.5px !important;
+  font-weight: 300 !important;
+}
+
+.MuiSvgIcon-root {
+  height: 0.7em !important;
+  width: 0.7em !important;
+}
